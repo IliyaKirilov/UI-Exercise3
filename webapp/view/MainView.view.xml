@@ -6,7 +6,7 @@
 					<content>
 						<!--<Button text="Say Hello" press=".onShowHello"/>-->
 						<!--<Input description="Test"></Input>-->
-						<Table id="idProductsTable" inset="false" items="{ path: 'productsModel>/ProductCollection' }">
+						<Table id="idProductsTable" inset="false" items="{ path: 'productsModel>/ProductCollection' , sorter : { path : 'Name' , group : true } }">
 							<headerToolbar>
 								<Toolbar>
 									<Title text="Custom Filter"/>
