@@ -1,59 +1,58 @@
 <mvc:View controllerName="kpmg.home.Exercise3.controller.MainView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content>
-						<!--<Button text="Say Hello" press=".onShowHello"/>-->
-						<!--<Input description="Test"></Input>-->
-						<Table id="idProductsTable" inset="false" items="{ path: 'productsModel>/ProductCollection' , sorter : { path : 'Name' , group : true } }">
-							<headerToolbar>
-								<Toolbar>
-									<Title text="Custom Filter"/>
-									<ToolbarSpacer/>
-									<SearchField width="50%" search=".onFilterInvoices"/>
-								</Toolbar>
-							</headerToolbar>
-							<columns>
-								<Column width="">
-									<Text text="Product"/>
-								</Column>
-								<Column minScreenWidth="Tablet" demandPopin="true">
-									<Text text="MainCategory"/>
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true">
-									<Text text="Category"/>
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true">
-									<Text text="SupplierName"/>
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true">
-									<Text text="Price"/>
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true">
-									<Text text="Comment"/>
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true">
-									<Text text="Status"/>
-								</Column>
-							</columns>
-							<items>
-								<ColumnListItem>
-									<cells>
-										<ObjectIdentifier title="{productsModel>Name}" text="{productsModel>Category}"/>
-										<Text text="{productsModel>MainCategory}"/>
-										<Text text="{productsModel>Category}"/>
-										<Text text="{productsModel>SupplierName}"/>
-										<ObjectIdentifier title="{productsModel>Price}" text="{productsModel>CurrencyCode}"/>
-										<Text text="{= ${productsModel>Price} > 500 ? 'Too Expensive' : 'Cheap Enough'}"/>
-										<Text text="{ path: 'productsModel>Status', formatter: '.formatter.checkingStatus' }"/>
-									</cells>
-								</ColumnListItem>
-							</items>
-						</Table>
-					</content>
-				</Page>
-			</pages>
-		</App>
-	</Shell>
+	<App id="app">
+		<pages>
+			<Page id="page" title="You will find our products here!">
+				<content>
+					
+					<Table class="myAppDemoWT" id="idProductsTable" inset="false"
+						items="{ path: 'productsModel>/ProductCollection' , sorter : { path : 'Name' , group : true } }">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Product Filter"/>
+								<ToolbarSpacer/>
+								<SearchField width="50%" search=".onFilterInvoices"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="">
+								<Text text="Product"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="MainCategory"/>
+							</Column>
+							<Column minScreenWidth="Desktop" demandPopin="true">
+								<Text text="Category"/>
+							</Column>
+							<Column minScreenWidth="Desktop" demandPopin="true">
+								<Text text="SupplierName"/>
+							</Column>
+							<Column minScreenWidth="Desktop" demandPopin="true">
+								<Text text="Price"/>
+							</Column>
+							<Column minScreenWidth="Desktop" demandPopin="true">
+								<Text text="Price Comment"/>
+							</Column>
+							<Column minScreenWidth="Desktop" demandPopin="true">
+								<Text text="Status"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{productsModel>Name}" text="{productsModel>ProductId}"/>
+									<Text text="{productsModel>MainCategory}"/>
+									<Text text="{productsModel>Category}"/>
+									<Text text="{productsModel>SupplierName}"/>
+									<ObjectIdentifier title="{productsModel>Price}" text="{productsModel>CurrencyCode}"/>
+									<Text class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"
+										text="{= ${productsModel>Price} > 500 ? 'Too Expensive' : 'Cheap Enough'}"/>
+									<Text text="{ path: 'productsModel>Status', formatter: '.formatter.checkingStatus' }"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
 </mvc:View>
